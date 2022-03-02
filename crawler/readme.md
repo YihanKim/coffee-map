@@ -1,5 +1,4 @@
 ### Coffee-farm crawler
 
-* target: CoE / NW Winners 
-* site: https://allianceforcoffeeexcellence.org/competition-auction-results/
-
+* target: CoE Winners
+* site: https://cupofexcellence.org/competition-auction-results/

@@ -26,8 +26,8 @@ column_map = {
     'SCORE': 'Score',
     'Score': 'Score',
 
-    'PROCESS': 'Process',
-    'Process': 'Process',
+    'PROCESS': 'Process', # TODO: add process for previous brazil CoE
+    'Process': 'Process', # (Naturals, Pulped Naturals)
     'PROCESSING': 'Process',
     'Processing': 'Process',
 

@@ -1,13 +1,12 @@
 # Coffee-Map
 
-
-
 ### Stack
 
-* Web
+* Web(TBI)
   - React-Typescript
   - OpenStreetMap
   - Leaflet
-* Tile serve
+* Tile serve(TBI)
   - Docker
-  
+* crawler + API
+  - BS4, requests
