@@ -129,7 +129,6 @@ def normalize_column(d):
 
     return d
 
-
 def normalize_columns(list_of_dict):
     return list(map(
         lambda d: normalize_column(map_column(d)),

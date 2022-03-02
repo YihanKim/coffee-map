@@ -1,7 +1,7 @@
 from collections import \
     defaultdict
 from bs4 import \
-    BeautifulSoup
+    BeautifulSoup as bs
 import requests
 from config import \
     Config
@@ -22,7 +22,7 @@ def get_coe_competition_links():
     response = requests.get(request_url)
     if response.status_code == 200:
         html = response.text
-        soup = BeautifulSoup(html, 'html.parser')
+        soup = bs(html, 'html.parser')
         menu = soup.find('ul', id='menu-coe-country-programs-menu')
         links = list(filter(
             lambda li: 'menu-item-has-children' not in li['class'],
@@ -42,7 +42,7 @@ def get_ace_auction_links():
     response = requests.get(request_url)
     if response.status_code == 200:
         html = response.text
-        soup = BeautifulSoup(html, 'html.parser')
+        soup = bs(html, 'html.parser')
         menu = soup.find('ul', id='menu-coe-country-programs-menu')
         links = list(filter(
             lambda li: 'menu-item-has-children' not in li['class'],
@@ -62,7 +62,7 @@ def _request_containers_from_url(url):
     response = requests.get(url)
     if response.status_code == 200:
         html = response.text
-        soup = BeautifulSoup(html, 'html.parser')
+        soup = bs(html, 'html.parser')
         container = soup.find('div', 'vc_tta-container')
         return container
     else:

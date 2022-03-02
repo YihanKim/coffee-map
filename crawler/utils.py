@@ -1,5 +1,6 @@
 import pickle
-from bs4 import BeautifulSoup
+from bs4 import \
+    BeautifulSoup as bs
 from urllib.parse import \
     urlsplit, \
     urlunsplit
@@ -59,7 +60,7 @@ def get_country_and_year_from_url(url):
 ### Pickles
 
 def read_bs_container_dict(filename):
-    text_to_bs = lambda text: BeautifulSoup(text, 'html.parser')
+    text_to_bs = lambda text: bs(text, 'html.parser')
     with open(filename, 'rb') as f:
         return {k:text_to_bs(v) for k, v in pickle.load(f)}
 
