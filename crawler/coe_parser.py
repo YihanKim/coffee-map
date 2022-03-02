@@ -120,7 +120,7 @@ def main():
     info = get_competition_dict_from_tables_dict(D)
     flattened_info = sum(info.values(), [])
     # index:int ->> row:dict (str -> str)
-    with open(Config.coe_json_of_info_filename, 'w') as f:
+    with open(Config.coe_json_of_info_filepath, 'w') as f:
         json.dump(flattened_info, f)
 
 if __name__ == "__main__":

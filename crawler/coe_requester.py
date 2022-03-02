@@ -84,7 +84,7 @@ def request_coe_containers():
         get_coe_competition_links(),
         lambda container_dict: write_bs_container_dict(
             container_dict,
-            Config.coe_dict_of_containers_filename,
+            Config.coe_dict_of_containers_filepath,
         )
     )
 
@@ -93,7 +93,7 @@ def request_ace_containers():
         get_ace_competition_links(),
         lambda container_dict: write_bs_container_dict(
             container_dict,
-            Config.ace_dict_of_containers_filename,
+            Config.ace_dict_of_containers_filepath,
         )
     )
 
@@ -107,13 +107,13 @@ def _read_or_request_containers(filename, request_f):
 
 def read_or_request_coe_containers():
     return _read_or_request_containers(
-        Config.coe_dict_of_containers_filename,
+        Config.coe_dict_of_containers_filepath,
         request_coe_containers
     )
 
 def read_or_request_ace_containers():
     return _read_or_request_containers(
-        Config.ace_dict_of_containers_filename,
+        Config.ace_dict_of_containers_filepath,
         request_ace_containers
     )
 
@@ -150,7 +150,7 @@ def main(test=False):
         # info = get_competition_dict_from_tables_dict(D)
         # flattened_info = sum(info.values(), [])
         # # index:int ->> row:dict (str -> str)
-        # with open(Config.coe_json_of_info_filename, 'w') as f:
+        # with open(Config.coe_json_of_info_filepath, 'w') as f:
         #     json.dump(flattened_info, f)
         return
 

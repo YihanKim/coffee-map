@@ -137,10 +137,10 @@ def normalize_columns(list_of_dict):
     ))
 
 def main(test=False):
-    with open(Config.coe_json_of_info_filename, 'r') as f:
+    with open(Config.coe_json_of_info_filepath, 'r') as f:
         info = json.load(f) # index:int ->> row:dict (str -> str)
     normalized_info = normalize_columns(info)
-    with open(Config.coe_normalized_json_of_info_filename, 'w') as f:
+    with open(Config.coe_normalized_json_of_info_filepath, 'w') as f:
         info = json.dump(normalized_info, f)
     return
 

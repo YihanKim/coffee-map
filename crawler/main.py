@@ -1,3 +1,4 @@
+import os
 import json
 from coe_requester import \
     read_or_request_coe_containers
@@ -15,15 +16,15 @@ def prepare():
     info = get_competition_dict_from_tables_dict(D)
     flattened_info = sum(info.values(), [])
     normalized_info = normalize_columns(flattened_info)
-    with open(Config.coe_normalized_json_of_info_filename, 'w') as f:
+    with open(Config.coe_normalized_json_of_info_filepath, 'w') as f:
         info = json.dump(normalized_info, f)
     return
 
 
 def main():
-    if not os.path.exists(Config.coe_normalized_json_of_info_filename):
+    if not os.path.exists(Config.coe_normalized_json_of_info_filepath):
         prepare()
-    # run api 
+    # run API server here
     return
 
 if __name__ == "__main__":
