@@ -9,6 +9,7 @@ basedir = os.path.dirname(os.path.abspath(__file__))
 datadir = os.path.join(basedir, 'data')
 
 class Config(object):
+    # includes configurations with some constants
 
     # CoE / ACE urls
     ace_website_url = 'https://allianceforcoffeeexcellence.org/'
@@ -48,3 +49,6 @@ class FarmConfig(object):
     farm_directory_url, \
     dev_coe_url, \
     coe_url = _farm_url_origins
+
+class DjangoConfig(object):
+    secret_key = 'django-insecure-+e97zysl4td5_ukrmv$polhmzgd)&%(3f48exzkgq_7o@evry2'

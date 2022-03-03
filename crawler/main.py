@@ -1,4 +1,6 @@
+#!/usr/bin/env python
 import os
+import sys
 import json
 from coe_requester import \
     read_or_request_coe_containers
@@ -10,6 +12,7 @@ from column_normalizer import \
 from config import \
     Config
 
+
 def prepare():
     D = read_or_request_coe_containers()
     D = get_competition_table_dict_from_containers(D)
@@ -20,11 +23,20 @@ def prepare():
         info = json.dump(normalized_info, f)
     return
 
-
 def main():
+    """Run administrative tasks."""
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'api.settings')
     if not os.path.exists(Config.coe_normalized_json_of_info_filepath):
         prepare()
-    # run API server here
+    try:
+        from django.core.management import execute_from_command_line
+    except ImportError as exc:
+        raise ImportError(
+            "Couldn't import Django. Are you sure it's installed and "
+            "available on your PYTHONPATH environment variable? Did you "
+            "forget to activate a virtual environment?"
+        ) from exc
+    execute_from_command_line(sys.argv)
     return
 
 if __name__ == "__main__":
