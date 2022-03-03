@@ -34,6 +34,11 @@ class Config(object):
             datadir,
             "coe_normalized_competition.json"
     )
+    coe_farm_extended_info_filepath = os.path.join(
+            datadir,
+            "coe_row.json"
+
+    )
     coe_competition_table_names = {"Winning Farms", "Winning Farms*"}
     image_filedir = os.path.join(datadir, 'images')
 

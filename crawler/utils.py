@@ -67,3 +67,14 @@ def read_bs_container_dict(filename):
 def write_bs_container_dict(container_dict, filename):
     with open(filename, 'wb') as f:
         pickle.dump([(k, str(v)) for k, v in container_dict.items()], f)
+
+
+### BeautifulSoup
+
+def _get_ancestor_tag(soup, n):
+    # return n-th ancestor of bs_tag
+    # (first ancestor = bs_tag.parent)
+    _bs_tag = soup
+    for i in range(n):
+        _bs_tag = _bs_tag.parent
+    return _bs_tag

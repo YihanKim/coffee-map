@@ -29,3 +29,12 @@ class Result(models.Model):
             f"competition: {self.competition}"
             f")>"
         )
+
+class Farm(models.Model):
+    farm_or_cws = models.CharField(max_length=100)
+    pass
+
+class Position(models.Model):
+    result = models.ForeignKey(Result, on_delete=models.CASCADE)
+    latitude = models.FloatField()
+    longitude = models.FloatField()
